@@ -108,3 +108,24 @@ formulario.addEventListener('submit', event => {
   pintarTareas();
   formulario.reset();
 });
+
+// 6. MANEJO DE EVENTOS: Captura de botones de filtrado
+
+botonesFiltro.forEach(boton => {
+  boton.addEventListener('click', event => {
+    document.querySelector('.btn-filtro.active')
+      ?.classList.remove('active');
+
+    const botonPulsado = event.currentTarget;
+    botonPulsado.classList.add('active');
+
+// TODO: Actualizar la variable 'filtroActual' con el atributo 'data-filtro' del botón
+    filtroActual = botonPulsado.dataset.filtro;
+
+    // TODO: Invocar pintarTareas() para refrescar la pantalla
+    pintarTareas();
+  });
+});
+
+// 7. Arrancar la aplicación
+inicializarApp();
