@@ -30,5 +30,26 @@ async function inicializarApp() {
   pintarTareas();
 }
 
+// 4. FUNCIÓN DE RENDERIZADO: Encargada de pintar los nodos en el HTML
+// TODO: Limpiar el contenedor listaContenedor (innerHTML = '')
+function pintarTareas() {
+  listaContenedor.innerHTML = '';
 
+// TODO: Filtrar el array 'tareas' según el 'filtroActual' usando .filter()
+  const tareasFiltradas = tareas.filter(tarea => {
+    if (filtroActual === 'Pendientes') {
+      return !tarea.completada;
+    }
+
+    if (filtroActual === 'Completadas') {
+      return tarea.completada;
+    }
+
+    return true;
+  });
+
+// TODO: Recorrer el array filtrado y crear dinámicamente un elemento <li> por cada tarea
+  tareasFiltradas.forEach(tarea => {
+    const li = document.createElement('li');
+    li.classList.add('item-tarea', tarea.prioridad);
 
