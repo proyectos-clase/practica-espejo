@@ -127,5 +127,10 @@ botonesFiltro.forEach(boton => {
   });
 });
 
+// TODO: Escuchar eventos en el contenedor
+listaContenedor.addEventListener('click', event => {
+  console.log('Click detectado en el contenedor');
+});
+
 // 7. Arrancar la aplicación
 inicializarApp();
